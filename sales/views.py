@@ -231,8 +231,8 @@ class GenerateInvoiceAPIView(View):
                         extra_item = extra_item_form.save()
                         extra_items_id.append(extra_item.id)
 
-            self.invoice.purchased_items = purchased_items_id
-            self.invoice.extra_items = extra_items_id
+            self.invoice.purchased_items.set(purchased_items_id)
+            self.invoice.extra_items.set(extra_items_id)
             self.invoice.save()
 
             if self.customer or self.request.POST.get('customer_id'):

@@ -2,3 +2,38 @@
 /db.sqlite3
 /env
 __pycache__
+test.py
+*.pyc
+*~
+/media/*
+/static/
+/locale/
+/logs/*
+.venv/
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# IDE Projects
+/.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+
+# Installation-specific
+.env
+
+# testing related files
+.coverage
+
+/sss/settings_local.py
+db.local_inventory

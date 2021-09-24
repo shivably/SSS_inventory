@@ -14,9 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include, re_path
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
-    path("product/", include("inventory.urls")),
+    re_path(r'^', include('com.urls')),
+    re_path(r'^product/', include(('product.urls',
+            'product'), namespace='product'),),
+    re_path(r'^retailer/', include(('retailer.urls',
+            'retailer'), namespace='retailer')),
+    re_path(r'^sales/', include(('sales.urls', 'sales'), namespace='sales')),
+    re_path(r'^ledger/', include(('ledger.urls', 'ledger'), namespace='ledger')),
+    re_path(r'^expense/', include(('expense.urls',
+            'expense'), namespace='expense')),
+    re_path(r'^employee/', include(('employees.urls',
+            'employee'), namespace='employee')),
+    re_path(r'^supplier/', include(('supplier.urls',
+            'supplier'), namespace='supplier')),
     path('admin/', admin.site.urls),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

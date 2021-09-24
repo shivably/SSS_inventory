@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_static_fontawesome',
-    'django_static_jquery',
     'com',
     'ledger',
     'retailer',

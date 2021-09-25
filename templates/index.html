@@ -1,8 +1,44 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="container">
-    <br><br>
+     <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-home"></span> Quick Access
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                          <a href="{% url 'supplier:list_supplier' %}" class="btn btn-danger quick_link" role="button"><i class="fa fa-user"></i> <br/>Suppliers</a>
+                          {% if request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_LEDGER_VIEW or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_OWNER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_VIEW_ACCOUNT %}
+                            <a href="{% url 'ledger:customer_ledger_list' %}" class="btn btn-warning quick_link" role="button"><i class="fa fa-tasks"></i>  <br/>Customer</a>
+                          {% endif %}
+                          {% if request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_DATA_ENTRY_USER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_OWNER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_VIEW_ACCOUNT %}
+                            <a href="{% url 'product:stock_items_list' %}" class="btn btn-primary quick_link" role="button"><i class="fa fa-shopping-cart"></i>  <br/>Products</a>
+                          {% endif %}
+                          {% if request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_SALESMAN or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_OWNER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_VIEW_ACCOUNT %}
+                            <a href="{% url 'expense:expense_list' %}" class="btn btn-success quick_link" role="button"><i class="fa fa-users"></i>  <br/>Expense</a>
+                          {% endif %}
+                          {% if request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_SALESMAN or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_OWNER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_VIEW_ACCOUNT %}
+                            <a href="{% url 'sales:invoice_list' %}" class="btn btn-danger quick_link" role="button"><i class="fa fa-rupee-sign"></i>  <br/>Sales</a>
+                          {% endif %}
+                          {% if request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_SALESMAN or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_OWNER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_VIEW_ACCOUNT %}
+                            <a href="{% url 'employee:employee_list' %}" class="btn btn-warning quick_link" role="button"><i class="fa fa-file-invoice-dollar"></i>  <br/>Employee</a>
+                          {% endif %}
+                          {% if request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_SALESMAN or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_OWNER or request.user.retailer_user.role_type == request.user.retailer_user.ROLE_TYPE_VIEW_ACCOUNT %}
+                            <a href="{% url 'create_feedback' %}" class="btn btn-primary quick_link" role="button"><i class="fa fa-comments"></i>  <br/>Feedback</a>
+                          {% endif %}
+                          <a href="{% url 'reports' %}" class="btn btn-success quick_link" role="button"><i class="fa fa-chart-pie"></i>  <br/>Reports</a>
+                          <a href="{% url 'product:daily_stock_logs' %}" class="btn btn-danger quick_link" role="button"><i class="fa fa-layer-group"></i>  <br/>Logs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row text-center">
 <!--        add customes div-->
         <div class="col-lg-4 col-md-6">
@@ -172,7 +208,7 @@
                             <div class="col-xs-12 text-center">
                                 <br>
                                 <br>
-                                <i class="fa fa-th fa-4x" style="color:#fff"></i>
+                                <i class="fa fa-chart-pie fa-4x" style="color:#fff"></i>
                             </div>
                             <div class="col-xs-12 text-center">
                                 <br>

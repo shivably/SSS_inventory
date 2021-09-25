@@ -40,9 +40,9 @@
                         <td>{{ employee.address }}</td>
                         <td>{{ employee.date_of_joining }}</td>
                         <td>
-                            <a href="{% url 'employee:delete_employee' pk=employee.id %}"><button class="btn btn-danger btn-xs" title="Delete"><i class="fa  fa-trash-o"></i></button></a>
-                            <a href="{% url 'employee:employee_salary' pk=employee.pk %}"><button class="btn btn-primary btn-xs" title="Salary"><i class="fa  fa-money"></i></button></a>
-                            <a href="{% url 'employee:employee_salary_detail' pk=employee.pk %}"><button class="btn btn-info btn-xs" title="Employee Salary Record"><i class="fa fa-bar-chart-o"></i></button></a>
+                            <a href="{% url 'employee:delete_employee' pk=employee.id %}"><button class="btn btn-danger btn-xs" title="Delete"><i class="fas fa-trash"></i></button></a>
+                            <a href="{% url 'employee:employee_salary' pk=employee.pk %}"><button class="btn btn-primary btn-xs" title="Salary"><i class="fas fa-rupee-sign"></i></button></a>
+                            <a href="{% url 'employee:employee_salary_detail' pk=employee.pk %}"><button class="btn btn-info btn-xs" title="Employee Salary Record"><i class="fas fa-chart-bar"></i></button></a>
                         </td>
                     </tr>
                     {% endfor %}
